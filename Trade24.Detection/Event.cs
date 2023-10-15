@@ -5,7 +5,8 @@
         public string Symbol { get; set; }
         public DateTime Date { get; set; }
         public Direction Direction { get; set; }
-        public EventType Type { get; set; }
+        public Guid EventTypeId { get; set; }
+        public string Description { get; set; }
 
 
     }
@@ -16,10 +17,5 @@
         Bearish
     }
 
-    public enum EventType
-    {
-        CloseCross50Sma,
-
-    }
 
 }

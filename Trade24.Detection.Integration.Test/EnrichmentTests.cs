@@ -36,6 +36,7 @@ namespace Trade24.Detection.Integration.Test
             Assert.Contains(richData, rd => rd.MACDSignal > 0);
             Assert.Contains(richData, rd => rd.MACDHistogram > 0);
             Assert.Contains(richData, rd => rd.MACDFastEMA > 0);
+            Assert.Contains(richData, rd => rd.MACDSlowEMA > 0);
 
             //Assert that the data has Ichimoku Cloud.
             Assert.Contains(richData, rd => rd.IchimokuConversionLine > 0);

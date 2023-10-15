@@ -38,6 +38,38 @@ namespace Trade24.Detection
             var sma100Result = data.GetSma(100).ToList();
             sma100Result.ForEach(sma100 => richData.First(rd => rd.Date == sma100.Date).SMA100 = (decimal)sma100.Sma.GetValueOrDefault(0));
 
+            //EMA
+            var ema12Result = data.GetEma(12).ToList();
+            ema12Result.ForEach(ema12 => richData.First(rd => rd.Date == ema12.Date).EMA12 = (decimal)ema12.Ema.GetValueOrDefault(0));
+
+            var ema26Result = data.GetEma(26).ToList();
+            ema26Result.ForEach(ema26 => richData.First(rd => rd.Date == ema26.Date).EMA26 = (decimal)ema26.Ema.GetValueOrDefault(0));
+
+            var ema50Result = data.GetEma(50).ToList();
+            ema50Result.ForEach(ema50 => richData.First(rd => rd.Date == ema50.Date).EMA50 = (decimal)ema50.Ema.GetValueOrDefault(0));
+
+            var ema100Result = data.GetEma(100).ToList();
+            ema100Result.ForEach(ema100 => richData.First(rd => rd.Date == ema100.Date).EMA100 = (decimal)ema100.Ema.GetValueOrDefault(0));
+
+            var ema200Result = data.GetEma(200).ToList();
+            ema200Result.ForEach(ema200 => richData.First(rd => rd.Date == ema200.Date).EMA200 = (decimal)ema200.Ema.GetValueOrDefault(0));
+
+            var ema9Result = data.GetEma(9).ToList();
+            ema9Result.ForEach(ema9 => richData.First(rd => rd.Date == ema9.Date).EMA9 = (decimal)ema9.Ema.GetValueOrDefault(0));
+
+            var ema21Result = data.GetEma(21).ToList();
+            ema21Result.ForEach(ema21 => richData.First(rd => rd.Date == ema21.Date).EMA21 = (decimal)ema21.Ema.GetValueOrDefault(0));
+
+            var ema8Result = data.GetEma(8).ToList();
+            ema8Result.ForEach(ema8 => richData.First(rd => rd.Date == ema8.Date).EMA8 = (decimal)ema8.Ema.GetValueOrDefault(0));
+
+            var ema5Result = data.GetEma(5).ToList();
+            ema5Result.ForEach(ema5 => richData.First(rd => rd.Date == ema5.Date).EMA5 = (decimal)ema5.Ema.GetValueOrDefault(0));
+
+            var ema10Result = data.GetEma(10).ToList();
+            ema10Result.ForEach(ema10 => richData.First(rd => rd.Date == ema10.Date).EMA10 = (decimal)ema10.Ema.GetValueOrDefault(0));
+
+
             //RSI
             var rsiResults = data.GetRsi(14).ToList();
 
@@ -52,6 +84,7 @@ namespace Trade24.Detection
                 richData.First(rd => rd.Date == macd.Date).MACDSignal = (decimal)macd.Signal.GetValueOrDefault(0);
                 richData.First(rd => rd.Date == macd.Date).MACDHistogram = (decimal)macd.Histogram.GetValueOrDefault(0);
                 richData.First(rd => rd.Date == macd.Date).MACDFastEMA = (decimal)macd.FastEma.GetValueOrDefault(0);
+                richData.First(rd => rd.Date == macd.Date).MACDSlowEMA = (decimal)macd.SlowEma.GetValueOrDefault(0);
             });
 
             //Ichimoku Cloud
