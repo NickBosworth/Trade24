@@ -1,4 +1,4 @@
-﻿namespace Trade24.Common.Data
+﻿namespace Trade24.Service.Data
 {
     public class RichDailyStockData : DailyStockData
     {

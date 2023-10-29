@@ -1,19 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace Trade24.Common.Data
+namespace Trade24.Service.Data
 {
 
 
-    public class Context : DbContext
+    public class SqliteContext : DbContext
     {
         public DbSet<StockTicker> StockTickers { get; set; }
         public DbSet<DailyStockData> DailyStockData { get; set; }
 
-        public DbSet<RunRecord> RunRecords { get; set; }
 
-        public DbSet<DailyNeutralStockIndicatorState> DailyNeutralStockIndicatorStates { get; set; }
-        public DbSet<DailyBullishStockIndicatorState> DailyBullishStockIndicatorStates { get; set; }
-        public DbSet<DailyBearishStockIndicatorState> DailyBearishStockIndicatorStates { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

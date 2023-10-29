@@ -10,8 +10,4 @@
     <PackageReference Include="Skender.Stock.Indicators" Version="2.4.11" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Trade24.Common\Trade24.Common.csproj" />
-  </ItemGroup>
-
 </Project>
