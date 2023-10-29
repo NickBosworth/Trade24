@@ -18,12 +18,4 @@ namespace Trade24.Service.Detection
 
         public SignalType SignalType { get; set; }
     }
-
-    public enum SignalType
-    {
-        Bullish,
-        StrongBullish,
-        Bearish,
-        StrongBearish
-    }
 }

@@ -45,6 +45,37 @@ namespace Trade24.Service.Jobs
                             Console.ForegroundColor = ConsoleColor.Green;
                             Console.WriteLine($"Last day is match for {plugin.Name} for {symbol.Symbol}");
                             Console.ResetColor();
+
+                            var pluginEvent = new PluginEvent()
+                            {
+                                PluginId = plugin.Id,
+                                Symbol = symbol.Symbol,
+                                Date = dayToProcess.Date,
+                                SignalType = plugin.SignalType,
+                                Description = plugin.Description,
+                                Name = plugin.Name,
+                            };
+
+                            //check if we have a plugin event for this symbol, date and plugin.
+                            var existingPluginEvent = context.PluginEvents.FirstOrDefault(x => x.Symbol == symbol.Symbol && x.Date == dayToProcess.Date && x.PluginId == plugin.Id);
+
+                            if (existingPluginEvent != null)
+                            {
+                                //update the existing plugin event
+                                existingPluginEvent.Description = pluginEvent.Description;
+                                existingPluginEvent.Name = pluginEvent.Name;
+                                existingPluginEvent.SignalType = pluginEvent.SignalType;
+                                existingPluginEvent.Symbol = pluginEvent.Symbol;
+                                existingPluginEvent.Date = pluginEvent.Date;
+                                existingPluginEvent.PluginId = pluginEvent.PluginId;
+                            }
+                            else
+                            {
+                                //Add it.
+                                context.PluginEvents.Add(pluginEvent);
+                            }
+
+                            context.SaveChanges();
                         }
                     }
                 }

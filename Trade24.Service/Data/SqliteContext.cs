@@ -8,6 +8,7 @@ namespace Trade24.Service.Data
     {
         public DbSet<StockTicker> StockTickers { get; set; }
         public DbSet<DailyStockData> DailyStockData { get; set; }
+        public DbSet<PluginEvent> PluginEvents { get; set; }
 
 
 
