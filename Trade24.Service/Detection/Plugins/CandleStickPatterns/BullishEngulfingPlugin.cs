@@ -1,6 +1,6 @@
 ﻿using Trade24.Service.Data;
 
-namespace Trade24.Service.Detection.Plugins
+namespace Trade24.Service.Detection.Plugins.CandleStickPatterns
 {
     public class BullishEngulfingPlugin : BasePlugin, IDetector
     {

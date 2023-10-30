@@ -1,6 +1,6 @@
 ﻿using Trade24.Service.Data;
 
-namespace Trade24.Service.Detection.Plugins
+namespace Trade24.Service.Detection.Plugins.CandleStickPatterns
 {
     public class BullishMorningStarPlugin : BasePlugin, IDetector
     {
@@ -29,13 +29,13 @@ namespace Trade24.Service.Detection.Plugins
             var day3 = data.Last();
 
             // Check if day1 is a long bearish candle (closed much lower than it opened).
-            bool isDay1Bearish = day1.Close < day1.Open && (day1.Open - day1.Close) >= (day1.High - day1.Low) * 0.6M;
+            bool isDay1Bearish = day1.Close < day1.Open && day1.Open - day1.Close >= (day1.High - day1.Low) * 0.6M;
 
             // Check if day2 (the 'star') gapped down from day1 and has a short body.
-            bool isDay2Star = day2.Open < day1.Close && (Math.Abs(day2.Close - day2.Open) <= (day2.High - day2.Low) * 0.3M);  // Assuming the body is less than 30% of its total range.
+            bool isDay2Star = day2.Open < day1.Close && Math.Abs(day2.Close - day2.Open) <= (day2.High - day2.Low) * 0.3M;  // Assuming the body is less than 30% of its total range.
 
             // Check if day3 is a long bullish candle that gapped up from day2 and closed into day1's body.
-            bool isDay3Bullish = day3.Open > day2.Close && day3.Close > day3.Open && (day3.Close - day3.Open) >= (day3.High - day3.Low) * 0.6M && day3.Close > (day1.Open + day1.Close) / 2;
+            bool isDay3Bullish = day3.Open > day2.Close && day3.Close > day3.Open && day3.Close - day3.Open >= (day3.High - day3.Low) * 0.6M && day3.Close > (day1.Open + day1.Close) / 2;
 
             // Check if the majority of the days before these three were in a downtrend.
             int downtrendDays = 0;

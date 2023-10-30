@@ -1,6 +1,6 @@
 ﻿using Trade24.Service.Data;
 
-namespace Trade24.Service.Detection.Plugins
+namespace Trade24.Service.Detection.Plugins.CandleStickPatterns
 {
     public class BullishPiercingLinePlugin : BasePlugin, IDetector
     {
@@ -28,10 +28,10 @@ namespace Trade24.Service.Detection.Plugins
             var day2 = data.Last();
 
             // Check if day1 is a long bearish candle (closed much lower than it opened).
-            bool isDay1Bearish = day1.Close < day1.Open && (day1.Open - day1.Close) >= (day1.High - day1.Low) * 0.6M;  // Assume a long candle has a body that is at least 60% of its total range.
+            bool isDay1Bearish = day1.Close < day1.Open && day1.Open - day1.Close >= (day1.High - day1.Low) * 0.6M;  // Assume a long candle has a body that is at least 60% of its total range.
 
             // Check if day2 is a long bullish candle (closed much higher than it opened).
-            bool isDay2Bullish = day2.Close > day2.Open && (day2.Close - day2.Open) >= (day2.High - day2.Low) * 0.6M;
+            bool isDay2Bullish = day2.Close > day2.Open && day2.Close - day2.Open >= (day2.High - day2.Low) * 0.6M;
 
             // Check if there's a gap down between day1's close and day2's open.
             bool hasGapDown = day2.Open < day1.Close;
