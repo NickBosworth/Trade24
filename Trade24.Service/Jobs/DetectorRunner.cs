@@ -38,7 +38,19 @@ namespace Trade24.Service.Jobs
                             continue;
                         }
 
-                        plugin.Detect(data);
+                        try
+                        {
+
+                            plugin.Detect(data);
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine($"Error running plugin {plugin.Name} for {symbol.Symbol} for {dayToProcess.Date}");
+                            Console.WriteLine(ex.Message);
+                            Console.ResetColor();
+                            continue;
+                        }
 
                         if (plugin.LastDayIsMatch)
                         {

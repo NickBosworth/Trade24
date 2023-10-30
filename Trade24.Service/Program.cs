@@ -28,7 +28,7 @@ while (true)
 
     //DetectorRunner.RunFor(DateTime.Now);
 
-    DetectorRunner.RunBetween(new DateTime(2022, 1, 1), new DateTime(2023, 10, 29));
+    DetectorRunner.RunBetween(new DateTime(2000, 1, 1), new DateTime(2023, 10, 30));
 
     //UpdateIndicatorStates.Update();
 
